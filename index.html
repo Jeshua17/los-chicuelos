@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boys - Panel Principal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="ondex.css">
+</head>
+<body>
+
+    <!-- HEADER con menú -->
+    <header class="main-header">
+        <div class="logo">⚡ THE BOYS ⚡</div>
+        <nav class="navbar navbar-expand-lg bg-transparent">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon bg-light rounded"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-light" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="personajes.html">Personajes</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="quiz.html">Quiz 🎯</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="historia.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="perfil.html">👤 Mi Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="foro.html"> danos tu opinion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row g-4">
+            
+            <!-- CARRUSEL DE NOTICIAS -->
+            <div class="col-md-4">
+                <div class="carrusel-noticias">
+                    <h4 class="text-warning mb-3">📰 Noticias recientes</h4>
+                    <div id="carouselNoticias" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" onclick="window.open('https://variety.com/2025/gaming/news/the-boys-video-game-trigger-warning-1236603433/', '_blank')" style="cursor: pointer;">
+                                <a href="#" style="text-decoration: none;">⚡ Nueva temporada de The Boys confirmada para 2026</a>
+                                <p>La serie más vista de Prime Video tendrá su cuarta temporada el próximo año.</p>
+                                <small class="text-secondary">Hace 2 días</small>
+                            </div>
+                            <div class="carousel-item" onclick="window.open('https://variety.com/2025/gaming/news/the-boys-video-game-trigger-warning-1236603433/', '_blank')" style="cursor: pointer;">
+                                <a href="#" style="text-decoration: none;">🎮 The Boys tendrá un videojuego oficial</a>
+                                <p>Un juego de acción en primera persona basado en la serie.</p>
+                                <small class="text-secondary">Hace 5 días</small>
+                            </div>
+                            <div class="carousel-item" onclick="window.open('https://variety.com/2025/gaming/news/the-boys-video-game-trigger-warning-1236603433/', '_blank')" style="cursor: pointer;">
+                                <a href="#" style="text-decoration: none;">🦸‍♂️ Homelander vs Butcher: ¿quién ganaría?</a>
+                                <p>Los fans debaten quién es el más fuerte después del final de la temporada 3.</p>
+                                <small class="text-secondary">Hace 1 semana</small>
+                            </div>
+                            <div class="carousel-item" onclick="window.open('https://variety.com/2025/gaming/news/the-boys-video-game-trigger-warning-1236603433/', '_blank')" style="cursor: pointer;">
+                                <a href="#" style="text-decoration: none;">💥 Derrota récord en taquilla para una película de Vought</a>
+                                <p>La empresa más polémica del universo The Boys sigue en el ojo de la tormenta.</p>
+                                <small class="text-secondary">Hace 2 semanas</small>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselNoticias" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" style="filter: invert(1);"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselNoticias" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" style="filter: invert(1);"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DATOS CURIOSOS DE THE BOYS -->
+                <div class="datos-curiosos">
+                    <h4 class="text-warning mb-3">🧠 Datos curiosos</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2 pb-2 border-bottom border-secondary">
+                            <span class="text-danger fw-bold">📌</span> La serie está basada en el cómic homónimo de Garth Ennis.
+                        </li>
+                        <li class="mb-2 pb-2 border-bottom border-secondary">
+                            <span class="text-danger fw-bold">📌</span> Homelander es interpretado por Antony Starr, quien también hizo de villano en "Banshee".
+                        </li>
+                        <li class="mb-2 pb-2 border-bottom border-secondary">
+                            <span class="text-danger fw-bold">📌</span> The Boys es una de las series más vistas de Amazon Prime Video.
+                        </li>
+                        <li class="mb-2 pb-2 border-bottom border-secondary">
+                            <span class="text-danger fw-bold">📌</span> El actor de Billy Butcher, Karl Urban, también interpretó a Éomer en "El Señor de los Anillos".
+                        </li>
+                        <li class="mb-2">
+                            <span class="text-danger fw-bold">📌</span> La temporada 4 se estrenó en 2024 y fue la más vista hasta la fecha.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ARTÍCULO DE INTERÉS -->
+            <div class="col-md-8">
+                <div class="articulo-central">
+                    <h2 class="text-warning">📺 Artículo de interés</h2>
+                    <div class="d-flex flex-wrap gap-3 mt-3">
+                        <div class="image-placeholder" style="width: 180px; height: 180px;">
+                            <img src="https://imgs.search.brave.com/06wVodiCrNNi0RixuHiGwuX-JyLTrq7fQWtbVC5R2hw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvdGhl/LWJveXMtYmFkLWZp/bmdlci1xaWkxcjFz/YTJxeGpwd215Lmpw/Zw" alt="The Boys equipo" class="card-img" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="flex-grow-1">
+                            <h3 style="color:#cbd5e1;">¿Quiénes son The Boys?</h3>
+                            <p>Un grupo de vigilantes que luchan contra los superhéroes corruptos.</p>
+                            <p>Liderados por Billy Butcher, no dudan en usar métodos extremos para exponer la verdad detrás de Vought International.</p>
+                            <a href="historia.html" class="btn btn-danger mt-2">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN DE PERSONAJES CON LAS 8 TARJETAS COMPLETAS -->
+    <section class="nueva-seccion">
+        <h2 class="text-center text-warning mb-4">Personajes Principales</h2>
+        <div class="container">
+            <div class="row g-4">
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="servicio" onclick="location.href='personajes.html#homelander'">
+                        <div class="personaje-img">
+                            <img src="https://imgs.search.brave.com/CPO01_hSIP5c6gZ71vNtKMR9w-X-oy3nhWaizeUayLE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzdmLzFj/LzM2LzdmMWMzNmU5/N2QxMzZhMmY1MTkx/MTg5OWNhMjU3MzQw/LmpwZw" alt="">
+                        </div>
+                        <h3>Homelander</h3>
+                        <p>El superhéroe más poderoso y psicópata. Líder de Los Siete, nacionalista extremo y sin escrúpulos.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="servicio" onclick="location.href='personajes.html#butcher'">
+                        <div class="personaje-img">
+                            <img src="https://imgs.search.brave.com/liJgw6Z5RRmH3ct34_skN5s8g5CYF3qd3zYRlzWNZYs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvdGhl/LWJveXMtYmlsbGll/LWJ1dGNoZXItY2hh/cmFjdGVyLXRubWRj/cWdrbWg1NjAyYzEu/anBn" alt="">
+                        </div>
+                        <h3>Billy Butcher</h3>
+                        <p>Líder de The Boys, obsesionado con destruir a Homelander. Método brutal y oscuro pasado.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="servicio" onclick="location.href='personajes.html#starlight'">
+                        <div class="personaje-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThWVbo6hXDa9cQIBKwJPuEXx9psiuhUw4JtQ&s" alt="Starlight">
+                        </div>
+                        <h3>Starlight</h3>
+                        <p>La heroína que se une a The Boys. Poderosa, empática y lucha por la justicia real.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="servicio" onclick="location.href='personajes.html#hughie'">
+                        <div class="personaje-img">
+                            <img src="https://imgs.search.brave.com/LRMJZUMw_8uNpTmCIo2ARkz7bG3O1Hrh2oRyuhpoM7g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwLnNyY2RuLmNv/bS93b3JkcHJlc3Mv/d3AtY29udGVudC91/cGxvYWRzLzIwMjQv/MDYvdGhlLWJveXMt/aHVnaGllLWphY2st/cXVhaWQuanBnP3E9/NDkmZml0PWNyb3Am/dz0yMjAmaD0xODIm/ZHByPTI" alt="Hughie">
+                        </div>
+                        <h3>Hughie Campbell</h3>
+                        <p>El corazón técnico de The Boys. Valiente, leal y dispuesto a todo por venganza y justicia.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="servicio" onclick="location.href='personajes.html#frenchie'">
+                        <div class="personaje-img">
+                            <img src="https://www.newamericanjackets.com/wp-content/uploads/2022/05/Frenchie-The-Boys-S03-Brown-Cotton-Jacket.jpg" alt="Frenchie">
+                        </div>
+                        <h3>Frenchie</h3>
+                        <p>Experto en armas y tácticas. Leal a Butcher y con un pasado tortuoso.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="servicio" onclick="location.href='personajes.html#mothersmilk'">
+                        <div class="personaje-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW7_NnfK9igUAEEQpYgCBSippxr8f2sF5zew&s" alt="Mother's Milk">
+                        </div>
+                        <h3>Mother's Milk</h3>
+                        <p>El estratega y músculo del equipo. Familiar, metódico y letal cuando es necesario.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="servicio" onclick="location.href='personajes.html#kimiko'">
+                        <div class="personaje-img">
+                            <img src="https://i.pinimg.com/736x/42/2c/05/422c0580fcb483251a50c92a92555b86.jpg" alt="Kimiko">
+                        </div>
+                        <h3>Kimiko</h3>
+                        <p>El arma maestra de The Boys. Versátil en combate y leal a Frenchie.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="servicio" onclick="location.href='personajes.html#terror'">
+                        <div class="personaje-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8TVW-FcU1oKUdHwPu7hTJHEuiQpgrxgpSyw&s" alt="Terror">
+                        </div>
+                        <h3>Terror</h3>
+                        <p>El integrante más importante del equipo. Fiel compañero de Butcher.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <p>Pablo Jeshua Sanchez - WEB COPY 2026 - Todos los derechos reservados.</p>
+        </div>
+                <div class="social-elinks">
+                     <a href="https://www.facebook.com/TheBoysTV" target="_blank">📘 Facebook</a>
+                    <a href="https://wa.me/50512345678?text=Hola%20The%20Boys" target="_blank">💬 WhatsApp</a>
+                    <a href="https://www.instagram.com/theboystv/" target="_blank">📸 Instagram</a>
+                </div>
+<div class="extra-info">
+    <p>Información adicional | contacto@pablo-web.com</p>
+</div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

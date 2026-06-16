@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boys - Mi Perfil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="ondex.css">
+    <style>
+        .perfil-container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #11161d;
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid #dc2626;
+            text-align: center;
+        }
+        .perfil-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #dc2626;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 50px;
+        }
+        .perfil-info {
+            background: #1f2a3a;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .perfil-info p {
+            margin: 10px 0;
+            color: #cbd5e1;
+        }
+        .perfil-info span {
+            color: #facc15;
+            font-weight: bold;
+        }
+        .btn-danger-custom {
+            background: #dc2626;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+        }
+        .btn-danger-custom:hover {
+            background: #facc15;
+            color: #0a0c10;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">⚡ THE BOYS ⚡</div>
+        <nav class="navbar navbar-expand-lg bg-transparent">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon bg-light rounded"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-light" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="personajes.html">Personajes</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="quiz.html">Quiz 🎯</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="historia.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="perfil.html">👤 Mi Perfil</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="perfil-container">
+        <div class="perfil-avatar">
+            👤
+        </div>
+        <h2 style="color: #facc15;" id="nombreUsuario">Cargando...</h2>
+        
+        <div class="perfil-info">
+            <p>📧 <span>Correo electrónico:</span> <span id="emailUsuario">---</span></p>
+            <p>📅 <span>Miembro desde:</span> <span id="fechaRegistro">---</span></p>
+            <p>🔐 <span>Último acceso:</span> <span id="ultimoAcceso">---</span></p>
+        </div>
+
+        <button class="btn-danger-custom" id="logoutBtnPerfil">Cerrar Sesión</button>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <p>Pablo Jeshua Sanchez - WEB COPY 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Obtener datos del usuario logueado
+        const usuarioData = localStorage.getItem('usuarioLogueado');
+        
+        if (!usuarioData) {
+            window.location.href = 'login.html';
+        }
+        
+        const usuario = JSON.parse(usuarioData);
+        
+        // Mostrar nombre y email
+        document.getElementById('nombreUsuario').innerHTML = usuario.nombre || usuario.nombre_usuario;
+        document.getElementById('emailUsuario').innerHTML = usuario.email;
+        
+        // Consultar al servidor para obtener fecha_registro y ultimo_acceso
+        fetch('http://localhost:3001/usuario/' + usuario.id)
+            .then(res => res.json())
+            .then(data => {
+                if (data.fecha_registro) {
+                    const fechaReg = new Date(data.fecha_registro).toLocaleDateString('es-ES');
+                    document.getElementById('fechaRegistro').innerHTML = fechaReg;
+                }
+                if (data.ultimo_acceso) {
+                    const fechaAcc = new Date(data.ultimo_acceso).toLocaleDateString('es-ES');
+                    document.getElementById('ultimoAcceso').innerHTML = fechaAcc;
+                }
+            })
+            .catch(err => console.error('Error al obtener fechas:', err));
+        
+        // Cerrar sesión
+        function cerrarSesion() {
+            localStorage.removeItem('usuarioLogueado');
+            window.location.href = 'login.html';
+        }
+        
+        document.getElementById('logoutBtnPerfil').addEventListener('click', cerrarSesion);
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) logoutBtn.addEventListener('click', (e) => { e.preventDefault(); cerrarSesion(); });
+    </script>
+</body>
+</html>

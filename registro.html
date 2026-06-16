@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boys - Registro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login_style.css">
+</head>
+<body>
+    <div class="blob-bg"></div>
+    <div class="blob-bg-2"></div>
+    <div class="blob-bg-3"></div>
+
+    <div class="glass-panel">
+        <form id="registroForm">
+            <h1>⚡ REGISTRO ⚡</h1>
+            
+            <label for="nombre">💀 NOMBRE 💀</label>
+            <input type="text" id="nombre" placeholder="Ej: HomelanderFan" required>
+            
+            <label for="email">📧 CORREO ELECTRÓNICO 📧</label>
+            <input type="email" id="email" placeholder="tu@email.com" required>
+            
+            <label for="password">🔒 CONTRASEÑA 🔒</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+            
+            <label for="confirmPassword">✅ CONFIRMAR CONTRASEÑA ✅</label>
+            <input type="password" id="confirmPassword" placeholder="••••••••" required>
+            
+            <button type="button" onclick="registrarUsuario()">
+                CREAR CUENTA
+            </button>
+            
+            <div class="registro-link">
+                ¿Ya tienes una cuenta? 
+                <a href="login.html">Inicia sesión aquí</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function registrarUsuario() {
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Validaciones
+            if (nombre === "" || email === "" || password === "") {
+                alert("❌ Por favor, completa todos los campos");
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert("❌ Las contraseñas no coinciden");
+                return;
+            }
+            
+            if (password.length < 4) {
+                alert("❌ La contraseña debe tener al menos 4 caracteres");
+                return;
+            }
+            
+            // Deshabilitar botón para evitar doble envío
+            const btn = document.querySelector('button');
+            btn.disabled = true;
+            btn.innerText = "REGISTRANDO...";
+            
+            // Llamada al servidor (backenbd con MySQL)
+            fetch('http://localhost:3001/registro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre_usuario: nombre,
+                    correo: email,
+                    contraseña: password
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert("✅ ¡Registro exitoso! Ahora inicia sesión");
+                    window.location.href = "login.html";
+                } else {
+                    alert("❌ " + data.mensaje);
+                    btn.disabled = false;
+                    btn.innerText = "CREAR CUENTA";
+                }
+            })
+            .catch(err => {
+                console.error("Error:", err);
+                alert("❌ Error de conexión con el servidor. ¿Está corriendo node server.js?");
+                btn.disabled = false;
+                btn.innerText = "CREAR CUENTA";
+            });
+        }
+    </script>
+</body>
+</html>

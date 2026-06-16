@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boys - Foro de Ideas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="ondex.css">
+    <style>
+        .foro-container {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+        .idea-card {
+            background: #11161d;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #dc2626;
+            margin-bottom: 20px;
+        }
+        .idea-card h4 {
+            color: #facc15;
+        }
+        .idea-card small {
+            color: #94a3b8;
+        }
+        .idea-card p {
+            color: #cbd5e1;
+            margin-top: 10px;
+        }
+        .respuesta {
+            background: #1f2a3a;
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin: 10px 0 5px 30px;
+            border-left: 3px solid #dc2626;
+        }
+        .respuesta small {
+            color: #94a3b8;
+        }
+        .respuesta p {
+            color: #cbd5e1;
+            margin: 5px 0 0 0;
+        }
+        .btn-eliminar {
+            background: transparent;
+            border: none;
+            color: #dc2626;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn-eliminar:hover {
+            color: #facc15;
+            text-decoration: underline;
+        }
+        .btn-responder {
+            background: transparent;
+            border: none;
+            color: #facc15;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .btn-responder:hover {
+            text-decoration: underline;
+        }
+        .btn-publicar {
+            background: #dc2626;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+        }
+        .btn-publicar:hover {
+            background: #facc15;
+            color: #0a0c10;
+        }
+        .btn-enviar-respuesta {
+            background: #facc15;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 30px;
+            color: #0a0c10;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .btn-enviar-respuesta:hover {
+            background: #dc2626;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">⚡ THE BOYS ⚡</div>
+        <nav class="navbar navbar-expand-lg bg-transparent">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon bg-light rounded"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-light" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="personajes.html">Personajes</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="quiz.html">Quiz 🎯</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="historia.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="foro.html">💬 Foro</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="perfil.html">👤 Mi Perfil</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="foro-container">
+        <h1 class="text-warning text-center mb-4">💬 Foro de Ideas</h1>
+        <p class="text-center text-secondary mb-4">Compartí tus teorías, personajes favoritos y todo sobre The Boys</p>
+
+        <!-- Formulario para publicar -->
+        <div class="bg-dark p-4 rounded-4 mb-4">
+            <h4 class="text-warning">📝 Publicar idea</h4>
+            <input type="text" id="tituloIdea" class="form-control mb-3 bg-secondary text-white" placeholder="Título de tu idea">
+            <textarea id="contenidoIdea" class="form-control mb-3 bg-secondary text-white" rows="3" placeholder="Escribe tu idea aquí..."></textarea>
+            <button class="btn-publicar" onclick="publicarIdea()">🚀 Publicar idea</button>
+        </div>
+
+        <!-- Lista de ideas -->
+        <div id="listaIdeas">
+            <p class="text-secondary text-center">Cargando ideas...</p>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <p>Pablo Jeshua Sanchez - WEB COPY 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const usuarioData = localStorage.getItem('usuarioLogueado');
+        if (!usuarioData) {
+            window.location.href = 'login.html';
+        }
+        const usuario = JSON.parse(usuarioData);
+
+        cargarIdeas();
+
+        function cargarIdeas() {
+            fetch('http://localhost:3001/ideas')
+                .then(res => res.json())
+                .then(data => {
+                    const contenedor = document.getElementById('listaIdeas');
+                    if (data.length === 0) {
+                        contenedor.innerHTML = '<p class="text-secondary text-center">No hay ideas aún. ¡Sé el primero en publicar!</p>';
+                        return;
+                    }
+                    contenedor.innerHTML = '';
+                    data.forEach(idea => {
+                        const fecha = new Date(idea.fecha_creacion).toLocaleDateString('es-ES');
+                        const esAutor = usuario.nombre === idea.usuario;
+
+                        contenedor.innerHTML += `
+                            <div class="idea-card" id="idea-${idea.id_idea}">
+                                <div class="d-flex justify-content-between">
+                                    <h4>${idea.titulo}</h4>
+                                    ${esAutor ? `<button class="btn-eliminar" onclick="eliminarIdea(${idea.id_idea})">🗑️ Eliminar</button>` : ''}
+                                </div>
+                                <small>Publicado por ${idea.usuario} • ${fecha}</small>
+                                <p>${idea.contenido}</p>
+                                <div>
+                                    <button class="btn-responder" onclick="toggleRespuesta(${idea.id_idea})">💬 Responder</button>
+                                </div>
+                                <div id="respuestas-${idea.id_idea}" class="mt-2">
+                                    <!-- Aquí se cargarán las respuestas -->
+                                </div>
+                                <div id="form-respuesta-${idea.id_idea}" style="display: none;" class="mt-2">
+                                    <textarea id="respuestaTexto-${idea.id_idea}" class="form-control bg-secondary text-white" rows="2" placeholder="Escribe tu respuesta..."></textarea>
+                                    <button class="btn-enviar-respuesta mt-2" onclick="publicarRespuesta(${idea.id_idea})">Enviar respuesta</button>
+                                </div>
+                            </div>
+                        `;
+                        cargarRespuestas(idea.id_idea);
+                    });
+                })
+                .catch(err => {
+                    console.error('Error al cargar ideas:', err);
+                    document.getElementById('listaIdeas').innerHTML = '<p class="text-danger text-center">Error al cargar ideas</p>';
+                });
+        }
+
+        function cargarRespuestas(id_idea) {
+            fetch(`http://localhost:3001/respuestas/${id_idea}`)
+                .then(res => res.json())
+                .then(data => {
+                    const contenedor = document.getElementById(`respuestas-${id_idea}`);
+                    if (data.length === 0) {
+                        contenedor.innerHTML = '<small class="text-secondary">Sin respuestas aún</small>';
+                        return;
+                    }
+                    contenedor.innerHTML = '';
+                    data.forEach(resp => {
+                        const fecha = new Date(resp.fecha_respuesta).toLocaleDateString('es-ES');
+                        contenedor.innerHTML += `
+                            <div class="respuesta">
+                                <small><strong>${resp.usuario}</strong> • ${fecha}</small>
+                                <p>${resp.contenido}</p>
+                            </div>
+                        `;
+                    });
+                })
+                .catch(err => console.error('Error al cargar respuestas:', err));
+        }
+
+        function toggleRespuesta(id_idea) {
+            const form = document.getElementById(`form-respuesta-${id_idea}`);
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function publicarRespuesta(id_idea) {
+            const contenido = document.getElementById(`respuestaTexto-${id_idea}`).value.trim();
+            if (!contenido) {
+                alert('❌ Escribe algo para responder');
+                return;
+            }
+
+            fetch('http://localhost:3001/respuestas', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id_idea: id_idea,
+                    usuario: usuario.nombre,
+                    contenido: contenido
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById(`respuestaTexto-${id_idea}`).value = '';
+                    document.getElementById(`form-respuesta-${id_idea}`).style.display = 'none';
+                    cargarRespuestas(id_idea);
+                } else {
+                    alert('❌ ' + data.mensaje);
+                }
+            })
+            .catch(err => {
+                console.error('Error al publicar respuesta:', err);
+                alert('❌ Error al conectar con el servidor');
+            });
+        }
+
+        function publicarIdea() {
+            const titulo = document.getElementById('tituloIdea').value.trim();
+            const contenido = document.getElementById('contenidoIdea').value.trim();
+
+            if (!titulo || !contenido) {
+                alert('❌ Por favor, completa el título y el contenido');
+                return;
+            }
+
+            fetch('http://localhost:3001/ideas', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    usuario: usuario.nombre,
+                    titulo: titulo,
+                    contenido: contenido
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ Idea publicada correctamente');
+                    document.getElementById('tituloIdea').value = '';
+                    document.getElementById('contenidoIdea').value = '';
+                    cargarIdeas();
+                } else {
+                    alert('❌ ' + data.mensaje);
+                }
+            })
+            .catch(err => {
+                console.error('Error al publicar:', err);
+                alert('❌ Error al conectar con el servidor');
+            });
+        }
+
+        function eliminarIdea(id_idea) {
+            if (!confirm('¿Estás seguro de eliminar esta idea?')) return;
+
+            fetch(`http://localhost:3001/ideas/${id_idea}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ usuario: usuario.nombre })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ Idea eliminada');
+                    cargarIdeas();
+                } else {
+                    alert('❌ ' + data.mensaje);
+                }
+            })
+            .catch(err => {
+                console.error('Error al eliminar:', err);
+                alert('❌ Error al conectar con el servidor');
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

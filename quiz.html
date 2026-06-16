@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boys - Quiz | ¿Qué personaje eres?</title>
+    <link rel="stylesheet" href="ondex.css">
+    <link rel="stylesheet" href="quiz_style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">⚡ THE BOYS ⚡</div>
+        <nav class="main-nav">
+            <a href="index.html">Inicio</a>
+            <a href="quiz.html">Quiz 🎯</a>
+
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>🎭 ¿QUÉ PERSONAJE DE THE BOYS ERES? 🎭</h1>
+            <p>Responde estas 7 preguntas y descubre tu verdadera identidad en el universo de The Boys</p>
+        </div>
+
+        <!-- Contenedor del quiz -->
+        <div id="quizApp">
+            <div id="preguntaContainer" class="pregunta-card">
+                <!-- Las preguntas se generan con JavaScript -->
+            </div>
+            <div id="resultadoContainer" class="resultado-card" style="display: none;">
+                <!-- El resultado se muestra aquí -->
+            </div>
+        </div>
+
+        <!-- Botón de reinicio (aparece después del resultado) -->
+        <div class="quiz-footer" id="reiniciarBtn" style="display: none;">
+            <button class="elboton" onclick="reiniciarQuiz()">🔄 Volver a empezar</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <p>Pablo Jeshua Sanchez - WEB COPY 2026 - Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-elinks">
+                <a href="#">Facebook</a>
+                <a href="#">WhatsApp</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="extra-info">
+                <p>Información adicional | contacto@pablo-web.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

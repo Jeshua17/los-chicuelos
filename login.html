@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boys - Iniciar Sesión</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="login_style.css">
+</head>
+<body>
+    <div class="blob-bg"></div>
+    <div class="blob-bg-2"></div>
+    <div class="blob-bg-3"></div>
+
+    <div class="glass-panel">
+        <form id="loginForm">
+            <h1>⚡ THE BOYS ⚡</h1>
+            
+            <div id="mensajeBienvenida" class="mensaje-bienvenida"></div>
+            
+            <label>📧 CORREO ELECTRÓNICO</label>
+            <div class="input-icon input-icon-email">
+                <input type="email" id="email" name="email" placeholder="admin@theboys.com" required>
+            </div>
+            
+            <label>🔒 CONTRASEÑA</label>
+            <div class="input-icon input-icon-password">
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+            
+            <button type="button" id="loginBtn">
+                INGRESAR AL PANEL
+            </button>
+            
+            <div class="registro-link">
+                ¿No tienes una cuenta? 
+                <a href="registro.html">Regístrate aquí</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

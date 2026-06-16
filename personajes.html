@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boys - Personajes</title>
+    <link rel="stylesheet" href="ondex.css">
+    <style>
+        .personajes-grid {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .personaje-card {
+            background: #11161d;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #dc2626;
+            display: flex;
+            flex-wrap: wrap;
+            scroll-margin-top: 100px;
+        }
+        
+        .personaje-card img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .personaje-info {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .personaje-info h2 {
+            color: #facc15;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .personaje-info h3 {
+            color: #dc2626;
+            margin: 15px 0 10px;
+        }
+        
+        .personaje-info p {
+            color: #cbd5e1;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        
+        .frase {
+            font-style: italic;
+            background: #1f2a3a;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 15px 0;
+            color: #facc15;
+        }
+        
+        .btn-volver {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+        .volver-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">⚡ THE BOYS ⚡</div>
+        <nav class="main-nav">
+            <a href="index.html">Inicio</a>
+            <a href="personajes.html">Personajes</a>
+            <a href="quiz.html">Quiz 🎯</a>
+        </nav>
+    </header>
+
+    <div class="volver-container">
+        <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+    </div>
+
+    <div class="personajes-grid">
+
+        <!-- ID = homelander -->
+        <div id="homelander" class="personaje-card">
+            <img src="https://imgs.search.brave.com/CPO01_hSIP5c6gZ71vNtKMR9w-X-oy3nhWaizeUayLE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzdmLzFj/LzM2LzdmMWMzNmU5/N2QxMzZhMmY1MTkx/MTg5OWNhMjU3MzQw/LmpwZw" alt="Homelander">
+            <div class="personaje-info">
+                <h2>Homelander</h2>
+                <div class="frase">"Puedo hacer lo que quiera, cuando quiera, a quien quiera"</div>
+                <p>Nacido en un laboratorio como el superhéroe perfecto, Homelander fue criado sin amor ni compasión. Es el líder de Los Siete. Bajo su sonrisa perfecta esconde una mente narcisista, psicópata y sedienta de poder.</p>
+                <h3>💥 Poderes:</h3>
+                <p>Visión de rayos X, vuelo, súper fuerza, resistencia extrema.</p>
+            </div>
+        </div>
+
+        <!-- ID = butcher -->
+        <div id="butcher" class="personaje-card">
+            <img src="https://imgs.search.brave.com/liJgw6Z5RRmH3ct34_skN5s8g5CYF3qd3zYRlzWNZYs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvdGhl/LWJveXMtYmlsbGll/LWJ1dGNoZXItY2hh/cmFjdGVyLXRubWRj/cWdrbWg1NjAyYzEu/anBn" alt="Billy Butcher">
+            <div class="personaje-info">
+                <h2>Billy Butcher</h2>
+                <div class="frase">"Hay dos tipos de personas: los que tienen el poder y los que lo sufren"</div>
+                <p>Líder de The Boys. Su esposa desapareció por Homelander, lo que desató su sed de venganza. Ex-agente de la CIA con métodos brutales.</p>
+                <h3>💥 Habilidades:</h3>
+                <p>Estrategia, determinación, manejo de armas, fuerza de voluntad.</p>
+            </div>
+        </div>
+
+        <!-- ID = starlight -->
+        <div id="starlight" class="personaje-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThWVbo6hXDa9cQIBKwJPuEXx9psiuhUw4JtQ&s" alt="Starlight">
+            <div class="personaje-info">
+                <h2>Starlight</h2>
+                <div class="frase">"La verdadera fuerza viene de hacer lo correcto"</div>
+                <p>Heroína que se une a The Boys. Poderosa, empática y lucha por la justicia real. Descubre que Los Siete son corruptos y decide cambiar el sistema desde adentro.</p>
+                <h3>💥 Poderes:</h3>
+                <p>Luz cegadora, energía pura, corazón noble.</p>
+            </div>
+        </div>
+
+        <!-- ID = hughie -->
+        <div id="hughie" class="personaje-card">
+            <img src="https://imgs.search.brave.com/LRMJZUMw_8uNpTmCIo2ARkz7bG3O1Hrh2oRyuhpoM7g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwLnNyY2RuLmNv/bS93b3JkcHJlc3Mv/d3AtY29udGVudC91/cGxvYWRzLzIwMjQv/MDYvdGhlLWJveXMt/aHVnaGllLWphY2st/cXVhaWQuanBnP3E9/NDkmZml0PWNyb3Am/dz0yMjAmaD0xODIm/ZHByPTI" alt="Hughie">
+            <div class="personaje-info">
+                <h2>Hughie Campbell</h2>
+                <div class="frase">"No soy un héroe. Solo un tipo normal al que pasaron cosas malas"</div>
+                <p>El corazón técnico de The Boys. Se une al grupo tras la muerte de su novia a manos de un superhéroe. Valiente, leal y dispuesto a todo.</p>
+                <h3>💥 Habilidades:</h3>
+                <p>Inteligencia técnica, lealtad, coraje inesperado.</p>
+            </div>
+        </div>
+
+        <!-- ID = frenchie -->
+        <div id="frenchie" class="personaje-card">
+            <img src="https://www.newamericanjackets.com/wp-content/uploads/2022/05/Frenchie-The-Boys-S03-Brown-Cotton-Jacket.jpg" alt="Frenchie">
+            <div class="personaje-info">
+                <h2>Frenchie</h2>
+                <div class="frase">"La familia no es la sangre, son los que se quedan"</div>
+                <p>Experto en armas y tácticas. Leal a Butcher y con un pasado tortuoso. Es el corazón sentimental del grupo.</p>
+                <h3>💥 Habilidades:</h3>
+                <p>Manejo de armas, explosivos, combate cuerpo a cuerpo.</p>
+            </div>
+        </div>
+
+        <!-- ID = mothersmilk -->
+        <div id="mothersmilk" class="personaje-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW7_NnfK9igUAEEQpYgCBSippxr8f2sF5zew&s" alt="Mother's Milk">
+            <div class="personaje-info">
+                <h2>Mother's Milk</h2>
+                <div class="frase">"La familia lo es todo"</div>
+                <p>El estratega y músculo del equipo. Familiar, metódico y letal cuando es necesario. Es la conciencia del grupo.</p>
+                <h3>💥 Habilidades:</h3>
+                <p>Estrategia, combate cuerpo a cuerpo, resistencia.</p>
+            </div>
+        </div>
+
+        <!-- ID = kimiko -->
+        <div id="kimiko" class="personaje-card">
+            <img src="https://i.pinimg.com/736x/42/2c/05/422c0580fcb483251a50c92a92555b86.jpg" alt="Kimiko">
+            <div class="personaje-info">
+                <h2>Kimiko</h2>
+                <div class="frase">"..."</div>
+                <p>El arma maestra de The Boys. Versátil en combate y leal a Frenchie. Aunque no habla, expresa todo con sus acciones.</p>
+                <h3>💥 Poderes:</h3>
+                <p>Fuerza sobrehumana, regeneración, combate letal.</p>
+            </div>
+        </div>
+
+        <!-- ID = terror -->
+        <div id="terror" class="personaje-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8TVW-FcU1oKUdHwPu7hTJHEuiQpgrxgpSyw&s" alt="Terror">
+            <div class="personaje-info">
+                <h2>Terror</h2>
+                <div class="frase">"Guau"</div>
+                <p>El integrante más importante del equipo. Fiel compañero de Butcher. Siempre está ahí cuando más se le necesita.</p>
+                <h3>💥 Habilidades:</h3>
+                <p>Lealtad infinita, ferocidad, mejor amigo del hombre.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <p>Pablo Jeshua Sanchez - WEB COPY 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
