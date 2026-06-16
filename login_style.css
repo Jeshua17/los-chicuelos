@@ -260,3 +260,30 @@ button:active {
         opacity: 0.6;
     }
 }
+
+
+.input-icon input,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 20px 14px 48px;
+    background: rgba(15, 23, 42, 0.7) !important;
+    border: 1px solid rgba(220, 38, 38, 0.6) !important;
+    border-radius: 44px !important;
+    font-size: 1rem;
+    color: #f1f5f9 !important;
+    backdrop-filter: blur(4px);
+    transition: all 0.25s ease;
+    font-weight: 500;
+}
+
+.input-icon input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #FACC15 !important;
+    background: rgba(30, 41, 59, 0.85) !important;
+    box-shadow: 0 0 14px rgba(250, 204, 21, 0.4);
+}
